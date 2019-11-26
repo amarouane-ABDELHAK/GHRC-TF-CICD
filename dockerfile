@@ -28,14 +28,6 @@ ENV HOME=/home/bamboo
 WORKDIR $HOME
 
 
- 
-# Install Terraform
-
-# RUN wget -o  https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.7_linux_amd64.zip /tmp/terraform_0.12.7_linux_amd64.zip && \
-#     unzip /tmp/terraform_0.12.7_linux_amd64.zip
-
-# And we want to use the cache layers of docker
-# Adding the build here because we will be modifying it a lot
 
 COPY build.sh $HOME/build.sh 
 ENTRYPOINT [ "/bin/bash", "/home/bamboo/build.sh"]
