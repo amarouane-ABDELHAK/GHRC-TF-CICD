@@ -20,14 +20,14 @@ RUN apt-get -y update && \
 RUN useradd -u 500 -ms /bin/bash bamboo 
 RUN mkdir /build
 COPY requirements.sh /build/
-RUN bash /build/requirements.sh
 
+RUN bash /build/requirements.sh
 # Adding bamboo user
 USER bamboo 
 ENV HOME=/home/bamboo
-WORKDIR $HOME
+WORKDIR $HOME/workstation
 
 # Adding dummy build.sh that needs to be overreten 
-COPY build.sh $HOME/build.sh 
-ENTRYPOINT [ "/bin/bash", "/home/bamboo/build.sh"]
-CMD ["0"]
+COPY entrypoint.sh $HOME/entrypoint.sh 
+ENTRYPOINT [ "/bin/bash", "/home/bamboo/entrypoint.sh"]
+#CMD [ "/bin/bash", "/home/bamboo/entrypoint.sh"]
