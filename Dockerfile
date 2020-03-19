@@ -32,5 +32,5 @@ WORKDIR $HOME/workstation
 
 # Adding dummy build.sh that needs to be overreten 
 COPY entrypoint.sh $HOME/entrypoint.sh 
-#ENTRYPOINT [ "/bin/bash", "/home/bamboo/entrypoint.sh"]
-CMD [ "/bin/bash", "/home/bamboo/entrypoint.sh"]
+ENTRYPOINT [ "/bin/bash", "/home/bamboo/entrypoint.sh"]
+#CMD [ "/bin/bash", "/home/bamboo/entrypoint.sh"]
