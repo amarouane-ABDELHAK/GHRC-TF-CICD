@@ -8,9 +8,12 @@ ENV TERM linux
 RUN apt-get -y update && \
     pip install twine && \
     apt-get install -y libxml2-utils && \
-    apt-get install -y zip rsync
+    apt-get install -y zip rsync && \
+    apt-get install -y python3-setuptools && \
+    apt-get install -y nano
 
 RUN pip install pytest
+
 RUN useradd -u 500 -ms /bin/bash bamboo 
 RUN mkdir /build
 COPY requirements.sh /build/
