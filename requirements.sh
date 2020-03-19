@@ -9,6 +9,3 @@ apt install -y nodejs
 wget https://releases.hashicorp.com/terraform/0.12.16/terraform_0.12.16_linux_amd64.zip -O /usr/local/bin/terraform.zip 
 unzip /usr/local/bin/terraform.zip -d /usr/local/bin/ 
 rm /usr/local/bin/terraform.zip
-
-# Install python dependencies
-pip install configparser
