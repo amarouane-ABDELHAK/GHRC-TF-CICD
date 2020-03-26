@@ -12,7 +12,8 @@ RUN apt-get -y update && \
     apt-get install -y python3-setuptools && \
     apt-get install -y nano
 
-RUN pip install pytest
+RUN pip install pytest && \
+    pip install awscli --upgrade
 
 RUN useradd -u 500 -ms /bin/bash bamboo 
 RUN mkdir /build
