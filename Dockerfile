@@ -10,6 +10,7 @@ RUN apt-get -y update && \
     apt-get install -y libxml2-utils && \
     apt-get install -y zip rsync && \
     apt-get install -y python3-setuptools && \
+    apt-get install -y python3-dev &&\
     apt-get install -y nano
 
 RUN pip install pytest && \
@@ -25,6 +26,10 @@ RUN bash /build/requirements.sh
 USER bamboo 
 ENV HOME=/home/bamboo
 WORKDIR $HOME/workstation
+
+# Install pyARt dependecies for MDX
+RUN pip install numpy==1.16.0 && \
+    pip install arm-pyart==1.11.1
 
 # Adding dummy build.sh that needs to be overreten 
 COPY entrypoint.sh $HOME/entrypoint.sh 
